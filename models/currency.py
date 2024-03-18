@@ -2,36 +2,40 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import requests
 from datetime import datetime
+import time
 
 
 CURRENCIES_SUPPORTED = [
-    "bitcoin",
+    'bitcoin',
     'ethereum',
-    'binancecoin'
+    'binancecoin',
     'solana',
-    'ripple'
+    'ripple',
     'cardano',
-    'tron'
-    'dogecoin'
-    'shiba'
-    'polkadot'
+    'tron',
+    'dogecoin',
+    'shiba',
+    'polkadot',
 ]
 
 
 def fetch_currency_data(currency='bitcoin'):
-    url = f"https://api.coingecko.com/api/v3/coins/{currency}/market_chart"
-    params = {
-        "vs_currency": "usd",
-        "days": "80",
-        "interval": "daily",
-    }
-    response = requests.get(url, params=params)
+    while True:
+        url = f"https://api.coingecko.com/api/v3/coins/{currency}/market_chart"
+        params = {
+            "vs_currency": "usd",
+            "days": "80",
+            "interval": "daily",
+        }
+        response = requests.get(url, params=params)
 
-    if response.status_code == 200:
-        data = response.json()
-        return data
-    else:
-        raise Exception(f"Error fetching data from {currency}")
+        if response.status_code == 200:
+            data = response.json()
+            return data
+        else:
+            print(f"Error fetching data from {currency}\n Status code: {response.status_code}")
+
+        time.sleep(1)
 
 
 def create_dataframe(data):
@@ -52,5 +56,3 @@ def draw_chart(df, color='blue'):
     plt.xticks(rotation=45)
     plt.tight_layout()
     plt.show()
-
-draw_chart(create_dataframe(fetch_currency_data()))
