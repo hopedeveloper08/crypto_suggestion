@@ -18,11 +18,11 @@ CURRENCIES_SUPPORTED = [
 ]
 
 
-def fetch_currency_data(name='bitcoin'):
-    url = f"https://api.coingecko.com/api/v3/coins/{name}/market_chart"
+def fetch_currency_data(currency='bitcoin'):
+    url = f"https://api.coingecko.com/api/v3/coins/{currency}/market_chart"
     params = {
         "vs_currency": "usd",
-        "days": "60",
+        "days": "80",
         "interval": "daily",
     }
     response = requests.get(url, params=params)
@@ -31,7 +31,17 @@ def fetch_currency_data(name='bitcoin'):
         data = response.json()
         return data
     else:
-        raise Exception(f"Error fetching data from {name}")
+        raise Exception(f"Error fetching data from {currency}")
+
+
+def create_dataframe(data):
+    prices = data['prices'][:-1]
+    df = pd.DataFrame(data=prices, columns=["date", 'price'])
+    df['date'] = df['date'].map(
+        lambda x: datetime.fromtimestamp(x / 1000).strftime('%Y-%m-%d')
+    )
+    df = df.set_index('date')
+    return df
 
 
 def draw_chart():
