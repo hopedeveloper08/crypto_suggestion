@@ -27,14 +27,6 @@ def senkou_B(df):
     return middle(data)
 
 
-def is_buy():
-    pass
-
-
-def is_sell():
-    pass
-
-
 def trend_status(df):
     if tenkan_sen(df) > kijun_sen(df) > senkou_A(df) > senkou_B(df):
         return "strong buy"
@@ -55,5 +47,5 @@ def trend_status(df):
         return "normal"
 
 
-def next_step_to_buy():
-    pass
+def steps_to_buy(df):
+    return [tenkan_sen(df), kijun_sen(df), senkou_A(df), senkou_B(df)]
