@@ -1,8 +1,10 @@
-import pandas as pd
+def middle(data):
+    return (data.max() + data.min()) / 2
 
 
-def tenkansen():
-    pass
+def tenkansen(df):
+    data = df.iloc[-9:, 0]
+    return middle(data)
 
 
 def kijunsen():
