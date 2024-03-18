@@ -35,8 +35,24 @@ def is_sell():
     pass
 
 
-def trend_status():
-    pass
+def trend_status(df):
+    if tenkan_sen(df) > kijun_sen(df) > senkou_A(df) > senkou_B(df):
+        return "strong buy"
+
+    elif tenkan_sen(df) < kijun_sen(df) < senkou_A(df) < senkou_B(df):
+        return "strong sell"
+
+    elif chiku_span(df) > senkou_B(df) and chiku_span(df) > senkou_A(df):
+        return "buy"
+
+    elif chiku_span(df) < senkou_B(df) and chiku_span(df) < senkou_A(df):
+        return "sell"
+
+    elif senkou_A(df) <= chiku_span(df) <= senkou_B(df) or senkou_B(df) <= chiku_span(df) <= senkou_A(df):
+        return "base"
+
+    else:
+        return "normal"
 
 
 def next_step_to_buy():
