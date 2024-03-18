@@ -17,8 +17,9 @@ def chiku_span(df):
     return data[0]
 
 
-def senkou_A():
-    pass
+def senkou_A(df):
+    data = df.iloc[:-25]
+    return (tenkan_sen(data) + kijun_sen(data)) / 2
 
 
 def senkou_B():
