@@ -44,5 +44,13 @@ def create_dataframe(data):
     return df
 
 
-def draw_chart():
-    pass
+def draw_chart(df, color='blue'):
+    plt.figure(figsize=(20, 12))
+    plt.style.use('ggplot')
+    plt.plot(df.index, df['price'], color=color, linewidth=2,  markersize=5)
+
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
+
+draw_chart(create_dataframe(fetch_currency_data()))
