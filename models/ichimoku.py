@@ -2,18 +2,19 @@ def middle(data):
     return (data.max() + data.min()) / 2
 
 
-def tenkansen(df):
+def tenkan_sen(df):
     data = df.iloc[-9:, 0]
     return middle(data)
 
 
-def kijunsen(df):
+def kijun_sen(df):
     data = df.iloc[-26:, 0]
     return middle(data)
 
 
-def chiku_span():
-    pass
+def chiku_span(df):
+    data = df.iloc[-1:, 0].values
+    return data[0]
 
 
 def senkou_A():
