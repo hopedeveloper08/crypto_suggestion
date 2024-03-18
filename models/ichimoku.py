@@ -22,8 +22,9 @@ def senkou_A(df):
     return (tenkan_sen(data) + kijun_sen(data)) / 2
 
 
-def senkou_B():
-    pass
+def senkou_B(df):
+    data = df.iloc[-77:-25]
+    return middle(data)
 
 
 def is_buy():
