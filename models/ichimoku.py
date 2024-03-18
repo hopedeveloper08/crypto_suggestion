@@ -7,8 +7,9 @@ def tenkansen(df):
     return middle(data)
 
 
-def kijunsen():
-    pass
+def kijunsen(df):
+    data = df.iloc[-26:, 0]
+    return middle(data)
 
 
 def chiku_span():
