@@ -2,9 +2,12 @@
   "manifest_version": 3,
   "name": "Crypto Suggestion",
   "version": "1.0",
-  "description": "SE project.",
+  "description": "crypto signal buy & sell.",
   "permissions": ["activeTab"],
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "pages": {
+      "suggest": "suggest.html"
+    }
   }
 }
