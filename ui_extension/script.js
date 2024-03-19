@@ -45,7 +45,9 @@ function showSuggestions() {
 
             const suggestionElement = document.createElement('button');
             suggestionElement.className = 'list-group-item list-group-item-action';
-            suggestionElement.style.backgroundColor = "rgb(50, 53, 70)";
+            suggestionElement.style.backgroundColor = "rgb(48, 21, 103)";
+            suggestionElement.style.opacity = "80%";
+            suggestionElement.style.borderColor = "RGB(145, 13, 166)";
             suggestionElement.addEventListener('click', function() {
                 searchInput.value = suggestion;
                 hideSuggestions();
@@ -59,8 +61,8 @@ function showSuggestions() {
 
             const text = document.createElement('span');
             text.textContent = suggestion;
-            text.className = "h5 ms-3"
-            text.style.color = "rgb(151, 156, 176)"
+            text.className = "ms-4 text-light";
+            text.style.opacity = "100%";
             suggestionElement.appendChild(text)
 
             suggestionsDiv.appendChild(suggestionElement);
