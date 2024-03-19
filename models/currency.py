@@ -16,6 +16,13 @@ CURRENCIES_SUPPORTED = [
     'dogecoin',
     'shiba',
     'polkadot',
+    'link',
+    'litecoin',
+    'cosmos',
+    'filecoin',
+    'fantom',
+    'dydx',
+    'decentraland',
 ]
 
 
@@ -32,6 +39,8 @@ def fetch_currency_data(currency='bitcoin'):
         if response.status_code == 200:
             data = response.json()
             return data
+        elif response.status_code == 429:
+            print(f"fetching {currency}")
         else:
             print(f"Error fetching data from {currency}\n Status code: {response.status_code}")
 
