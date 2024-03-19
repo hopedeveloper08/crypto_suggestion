@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 from models.currency import fetch_currency_data, create_dataframe, CURRENCIES_SUPPORTED
 from threading import Thread
 
@@ -14,7 +15,9 @@ def load_data():
 
 
 Thread(target=load_data).start()
+
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route("/currencies_supported", methods=["GET"])
