@@ -17,5 +17,10 @@ Thread(target=load_data).start()
 app = Flask(__name__)
 
 
+@app.route("/currencies_supported", methods=["GET"])
+def currencies_supported():
+    return {"data": CURRENCIES_SUPPORTED}
+
+
 if __name__ == '__main__':
     app.run(debug=True)
