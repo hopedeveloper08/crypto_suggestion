@@ -7,7 +7,7 @@ import time
 
 CURRENCIES_SUPPORTED = [
     'bitcoin',
-    # 'ethereum',
+    'ethereum',
     # 'binancecoin',
     # 'solana',
     # 'ripple',
@@ -28,7 +28,7 @@ CURRENCIES_SUPPORTED = [
 
 CURRENCIES_LOGOS = {
     'bitcoin': 'https://s2.coinmarketcap.com/static/img/coins/64x64/1.png',
-    # 'ethereum': 'https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png',
+    'ethereum': 'https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png',
     # 'binancecoin': 'https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png',
     # 'solana': 'https://s2.coinmarketcap.com/static/img/coins/64x64/5426.png',
     # 'ripple': 'https://s2.coinmarketcap.com/static/img/coins/64x64/52.png',
