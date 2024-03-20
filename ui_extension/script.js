@@ -69,7 +69,6 @@ function showSuggestions() {
             });})
         .catch(error => {
                 console.error('Error fetching data:', error);
-                showSuggestions();
             });
     suggestionsDiv.style.display = 'block';
 }
