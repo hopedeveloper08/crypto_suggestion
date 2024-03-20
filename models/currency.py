@@ -85,4 +85,4 @@ def draw_chart(df, color='blue'):
 
     plt.xticks(rotation=45)
     plt.tight_layout()
-    plt.show()
+    return plt

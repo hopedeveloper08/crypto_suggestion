@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_cors import CORS
-from models.currency import fetch_currency_data, create_dataframe, CURRENCIES_SUPPORTED, CURRENCIES_LOGOS
+from models.currency import fetch_currency_data, create_dataframe, CURRENCIES_SUPPORTED, CURRENCIES_LOGOS, draw_chart
 from models.ichimoku import signal_buy, signal_sell, trend_status, steps_to_buy
 
 
@@ -33,6 +33,13 @@ def get_currency_logo(currency):
         return {"logo": logo}
     else:
         return {}
+
+
+@app.route("/draw_chart/<currency>", methods=["GET"])
+def draw_chart_currency(currency):
+    plt = draw_chart(CURRENCY_DATA[currency])
+    plt.savefig("ui_extension/image/chart.png")
+    return {}
 
 
 if __name__ == '__main__':
