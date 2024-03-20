@@ -42,9 +42,10 @@ function showSuggestions() {
                 .catch(() => '');
             });
         })
-        .catch(error => {
-                console.error('Error fetching data:', error);
-            });
+        .catch((e) => {
+            document.getElementById("error-text").textContent = `cannot connect to server!`;
+            document.getElementById("error-box").style.display = 'block';
+        });
 }
 
 function getCurrencyStatus() {
@@ -55,7 +56,9 @@ function getCurrencyStatus() {
         .then(response => {
             if (response.status === 200)
                 window.location.href = 'suggest.html';
-            else
-                alert(search_text + " Not found!");
+        })
+        .catch(() => {
+            document.getElementById("error-text").textContent = `${search_text} data not exist!`;
+            document.getElementById("error-box").style.display = 'block';
         })
 }
