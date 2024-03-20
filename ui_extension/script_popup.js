@@ -55,6 +55,7 @@ function getCurrencyStatus() {
     fetch(`http://localhost:5000/get_currency_status/${search_text}`)
         .then(response => {
             if (response.status === 200)
+                localStorage.setItem("currency", search_text);
                 window.location.href = 'suggest.html';
         })
         .catch(() => {
