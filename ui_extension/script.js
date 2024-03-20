@@ -6,10 +6,6 @@ function navigateToSuggestPage() {
     window.location.href = 'suggest.html';
 }
 
-const searchInput = document.getElementById('search-input');
-const suggestionsDiv = document.getElementById('suggestions');
-
-
 const logos = {
     bitcoin: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1.png',
     ethereum: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png',
@@ -30,9 +26,7 @@ const logos = {
     decentraland: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1966.png'
 }
 
-searchInput.addEventListener('focus', function() {
-    showSuggestions();
-});
+const suggestionsDiv = document.getElementById('suggestions');
 
 function showSuggestions() {
     suggestionsDiv.innerHTML = '';
@@ -49,7 +43,7 @@ function showSuggestions() {
                 suggestionElement.style.opacity = "80%";
                 suggestionElement.style.borderColor = "RGB(145, 13, 166)";
                 suggestionElement.addEventListener('click', function() {
-                    searchInput.value = suggestion;
+                    document.getElementById('search-input').value = suggestion;
                     hideSuggestions();
                 });
 
@@ -73,6 +67,24 @@ function showSuggestions() {
     suggestionsDiv.style.display = 'block';
 }
 
+document.getElementById('search-input').addEventListener('focus', function() {
+    showSuggestions();
+});
+
 function hideSuggestions() {
     suggestionsDiv.style.display = 'none';
+}
+
+document.getElementById("search").addEventListener("click", function() {
+    get_currency_status();
+});
+
+function get_currency_status() {
+    const search_text = document.getElementById("search-input").value;
+    if (!search_text) return;
+
+    
+
+
+    navigateToSuggestPage();
 }
