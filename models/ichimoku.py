@@ -23,7 +23,7 @@ def senkou_A(df):
 
 
 def senkou_B(df):
-    data = df.iloc[-78:-25]
+    data = df.iloc[-78:-25].values
     return middle(data)
 
 
@@ -56,7 +56,7 @@ def signal_buy(df):
     yesterday_price = chiku_span(df.iloc[:-1])
 
     senkou_a = senkou_A(df.iloc[:-25])
-    senkou_b = senkou_B(df.iloc[:-25, 0])
+    senkou_b = senkou_B(df.iloc[:-25])
 
     if (yesterday_price <= senkou_a) or (yesterday_price <= senkou_b):
         if (today_price > senkou_a) and (today_price > senkou_b):
@@ -70,7 +70,7 @@ def signal_sell(df):
     yesterday_price = chiku_span(df.iloc[:-1])
 
     senkou_a = senkou_A(df.iloc[:-25])
-    senkou_b = senkou_B(df.iloc[:-25, 0])
+    senkou_b = senkou_B(df.iloc[:-25])
 
     if (yesterday_price >= senkou_a) or (yesterday_price >= senkou_b):
         if (today_price < senkou_a) and (today_price < senkou_b):
