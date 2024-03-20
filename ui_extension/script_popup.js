@@ -1,14 +1,9 @@
-const suggestionsDiv = document.getElementById('suggestions');
+document.getElementById('search-input').addEventListener('focus', function() {showSuggestions();});
+document.getElementById("search").addEventListener("click", function() {get_currency_status();});
 
-document.getElementById('search-input').addEventListener('focus', function() {
-    showSuggestions();
-});
-
-document.getElementById("search").addEventListener("click", function() {
-    get_currency_status();
-});
 
 function showSuggestions() {
+    const suggestionsDiv = document.getElementById('suggestions');
     suggestionsDiv.innerHTML = '';
 
     fetch("http://localhost:5000/currencies_supported")
@@ -47,3 +42,18 @@ function showSuggestions() {
             });
     suggestionsDiv.style.display = 'block';
 }
+
+function get_currency_status() {
+    const search_text = document.getElementById("search-input").value;
+    if (!search_text) return;
+
+    fetch(`http://localhost:5000/get_currency_status/${search_text}`)
+        .then(response => {
+            if (response.status === 200)
+                window.location.href = 'suggest.html';
+            else
+                alert(search_text + " Not found!");
+        })
+}
+
+export {logos};
