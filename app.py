@@ -21,6 +21,8 @@ def get_currency_status(currency):
     return {
         "signal_buy": signal_buy(data),
         "signal_sell": signal_sell(data),
+        "trend_status": trend_status(data),
+        "steps_to_buy": steps_to_buy(data),
     }
 
 
