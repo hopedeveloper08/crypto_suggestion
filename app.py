@@ -46,4 +46,5 @@ if __name__ == '__main__':
     for curr in CURRENCIES_SUPPORTED:
         CURRENCY_DATA[curr] = create_dataframe(fetch_currency_data(curr))
 
+    print("fetching complete...")
     app.run()
