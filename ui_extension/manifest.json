@@ -9,5 +9,10 @@
     "pages": {
       "suggest": "suggest.html"
     }
-  }
+  },
+  "content_scripts":
+    [{
+      "js":["bootstrap.bundle.min.js","script_popup.js", "script_suggest.js"],
+      "css":["bootstrap.min.css"]
+    }]
 }
