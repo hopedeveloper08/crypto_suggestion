@@ -54,12 +54,15 @@ function getCurrencyStatus() {
 
     fetch(`http://localhost:5000/get_currency_status/${search_text}`)
         .then(response => {
-            if (response.status === 200)
+            if (response.status === 200) {
                 localStorage.setItem("currency", search_text);
                 window.location.href = 'suggest.html';
+            }
+            else if (response.status === 500)
+                throw " data not exist"
         })
-        .catch(() => {
-            document.getElementById("error-text").textContent = `${search_text} data not exist!`;
+        .catch((e) => {
+            document.getElementById("error-text").textContent = `${search_text} ${e}!`;
             document.getElementById("error-box").style.display = 'block';
         })
 }
