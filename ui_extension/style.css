@@ -1,0 +1,21 @@
+body {
+    min-width: 500px;
+    min-height: 500px;
+    background-image: url("image/home-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.btn-bd-primary {
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-bg: #6A0DAD;
+  --bs-btn-border-color: #6A0DAD;
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-hover-bg: var(--bs-gray-dark);
+  --bs-btn-hover-border-color: var(--bs-gray-dark);
+  --bs-btn-focus-shadow-rgb: #6A0DAD;
+  --bs-btn-active-color: var(--bs-btn-hover-color);
+  --bs-btn-active-bg: var(--bs-gray-dark);
+  --bs-btn-active-border-color: var(--bs-gray-dark);
+}
