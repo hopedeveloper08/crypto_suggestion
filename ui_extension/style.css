@@ -19,3 +19,6 @@ body {
   --bs-btn-active-bg: var(--bs-gray-dark);
   --bs-btn-active-border-color: var(--bs-gray-dark);
 }
+.custom-popover {
+    white-space: pre-line;
+}

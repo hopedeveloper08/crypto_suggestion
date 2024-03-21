@@ -39,11 +39,14 @@ function setResult(data) {
 }
 
 function setMoreDetails(data) {
-    let result = '';
+    let result = 'steps:\n'
     for (let price of data.steps_to_buy)
-        result = result + price + "\n";
+        result += "‣ " + price + "\n";
 
-    document.getElementById("more-details").setAttribute("data-bs-content", result);
+    const more_details = document.getElementById("more-details");
+    more_details.setAttribute("data-bs-title", `trend status: ${data.trend_status}`)
+    more_details.setAttribute("data-bs-content", result);
+
     const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
     const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl));
 }
