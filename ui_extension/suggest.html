@@ -14,6 +14,14 @@
             background-size: cover;
             background-position: center;
         }
+        .custom-popover {
+          --bs-popover-max-width: 200px;
+          --bs-popover-border-color: #6A0DAD;
+          --bs-popover-header-bg: #6A0DAD;;
+          --bs-popover-header-color: var(--bs-white);
+          --bs-popover-body-padding-x: 1rem;
+          --bs-popover-body-padding-y: .5rem;
+        }
     </style>
 </head>
 <body class="container">
@@ -32,31 +40,26 @@
     </nav>
 
     <div class="container">
-        <div class="card m-3">
+        <div class="card m-3" style="background: none">
             <img src="" class="card-img-top" alt="chart" id="chart-img">
             <div class="card-body">
-                <h4 class="card-title text-center" id="result">
-
-                </h4>
-                <div class="accordion w-50" id="accordionExample" style="margin: 0 auto">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                More Details
-                            </button>
-                        </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <h1 class="card-title text-center" id="result">
+                </h1>
+                <button type="button" class="btn btn-secondary mt-2" id="more-details"
+                    data-bs-toggle="popover" data-bs-placement="right"
+                    data-bs-custom-class="custom-popover"
+                    data-bs-title="steps to buy"
+                    >
+                    Click to More Detail
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                    </svg>
+                </button>
             </div>
         </div>
     </div>
 
-    <script src="script_suggest.js"></script>
     <script src="bootstrap.bundle.min.js"></script>
+    <script src="script_suggest.js"></script>
 </body>
 </html>

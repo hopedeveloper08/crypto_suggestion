@@ -1,6 +1,5 @@
 document.getElementById("home-btn").addEventListener("click", function() {window.location.href = 'popup.html';});
 document.getElementById("currency-name").innerText = localStorage.getItem("currency");
-
 const currency = localStorage.getItem("currency");
 
 fetch(`http://localhost:5000/get_currency_logo/${currency}`)
@@ -23,7 +22,7 @@ fetch(`http://localhost:5000/get_currency_status/${currency}`)
     .then(response => response.json())
     .then(data => {
         setResult(data);
-
+        setMoreDetails(data);
     })
     .catch(e => console.log(e))
 
@@ -37,4 +36,14 @@ function setResult(data) {
         result.innerHTML = '<span class="badge text-bg-danger"><strong>SELL</strong></span>';
     else
         result.innerHTML = '<span class="badge text-bg-warning"><strong>HOLD</strong></span>';
+}
+
+function setMoreDetails(data) {
+    let result = '';
+    for (let price of data.steps_to_buy)
+        result = result + price + "\n";
+
+    document.getElementById("more-details").setAttribute("data-bs-content", result);
+    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl));
 }
