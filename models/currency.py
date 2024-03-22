@@ -79,7 +79,7 @@ def create_dataframe(data):
 
 
 def draw_chart(df, color='blue'):
-    plt.figure(figsize=(20, 12), facecolor='none')
+    plt.figure(figsize=(20, 12))
     plt.style.use('ggplot')
     plt.plot(df.index, df['price'], color=color, linewidth=2,  markersize=5)
 
